@@ -1,0 +1,36 @@
+#spring:
+#  rabbitmq:
+#    host: 192.168.11.128
+#    port: 5672
+#    username: guest
+#    password: guest
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh
+
+#禁言feign默认的http，启用okhttp
+feign:
+  client:
+    enabled: false
+  okhttp:
+    enabled: true
+  # feign启用hystrix，才能熔断、降级
+  hystrix:
+    enabled: true
+
+# hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+# ribbon的超时时间
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000

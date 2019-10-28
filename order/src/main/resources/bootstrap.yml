@@ -1,0 +1,18 @@
+eureka:
+  instance:
+    non-secure-port: ${server.port:9090}
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}(${spring.cloud.client.ipAddress}):${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+server:
+  port: 9090
+  host: 127.0.0.1
+spring:
+  application:
+    name: server-order
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8091/

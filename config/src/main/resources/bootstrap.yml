@@ -1,0 +1,19 @@
+server:
+  port: 8091
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+spring:
+  application:
+    name: server-config
+  cloud:
+    config:
+      server:
+        git:
+          #配置文件所在的服务地址
+          uri: https://gitee.com/shenjbing/configuration_center.git
+          #配置文件所在的文件路径
+          search-paths: configuration_center
+          username: 651720431@qq.com
+          password: cjl468

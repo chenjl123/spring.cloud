@@ -1,0 +1,25 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+server:
+  port: 8092
+spring:
+  application:
+    name: server-getaway
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8091/
+      #discovery:
+      #service-id: SERVER-CONFIG
+
+#限流配置
+zuul:
+  ratelimit:
+    enabled: true
+    default-policy:
+      #3秒内只能有1次请求且所有请求时间总和不得超过60秒
+      limit: 1
+      quota: 60
+      refresh-interval: 3

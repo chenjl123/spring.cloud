@@ -1,0 +1,23 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+server:
+  port: 9091
+spring:
+  application:
+    name: server-goods
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8091/
+  rabbitmq:
+    host: 192.168.11.128
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

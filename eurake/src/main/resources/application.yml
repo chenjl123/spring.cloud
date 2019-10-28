@@ -1,0 +1,13 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: server-eureka
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+  server:
+    #关闭注册中心的保护机
+    enable-self-preservation: false
